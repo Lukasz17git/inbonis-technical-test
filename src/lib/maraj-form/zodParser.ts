@@ -18,7 +18,6 @@ const zodErrorsParser = <TState extends Record<PropertyKey, any>>(schema: ZodTyp
       if (error instanceof ZodError) {
          for (const issue of error.issues) {
             if (!issue.path) continue
-            // eslint-disable-next-line @typescript-eslint/prefer-nullish-coalescing
             const dotPath = (issue.path.map((v) => v).join('.') || refineKey || Object.keys(state)[0]) as DotPaths<TState>
             /* Continue if there is already an error set in the same field. */
             if (typeof errorsObject[dotPath] === 'string') continue

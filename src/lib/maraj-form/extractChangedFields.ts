@@ -1,4 +1,4 @@
-import type { Prettify } from "@/utility-types";
+import type { Prettify } from "@/(utility-types)";
 import { forEachEntry, type ObjectLiteral, } from "maraj";
 import equal from 'react-fast-compare'
 

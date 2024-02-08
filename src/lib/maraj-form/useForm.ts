@@ -1,7 +1,7 @@
 import { type FormEvent, useMemo, useEffect } from "react"
-import { useCreateComponentStore, useCreateDotPathRecordComponentStore } from "../maraj-store"
 import { type DotPaths, type ObjectLiteral } from "maraj"
 import { extractChangedFields, type PartialKeepingSomeFields } from "./extractChangedFields"
+import { createComponentStore, createDotPathRecordComponentStore } from "../maraj-store"
 
 /* Subscribe Functions to listen on values changes */
 export type FormSubscription<T extends ObjectLiteral> = (valuesState: T, formContent: FormContent<T>) => void
@@ -34,9 +34,9 @@ export const useForm = <
    const subscriptions = subscribe ? (Array.isArray(subscribe) ? subscribe : [subscribe]) : undefined
 
    const content = useMemo((() => {
-      const valuesStore = useCreateComponentStore('Values', defaultValues)
-      const errorsStore = useCreateDotPathRecordComponentStore('Errors', {} as FormErrorStore<TState>)
-      const statusStore = useCreateDotPathRecordComponentStore('Status', {} as FormStatusStore<TState>)
+      const valuesStore = createComponentStore('Values', defaultValues)
+      const errorsStore = createDotPathRecordComponentStore('Errors', {} as FormErrorStore<TState>)
+      const statusStore = createDotPathRecordComponentStore('Status', {} as FormStatusStore<TState>)
       const formContent = { valuesStore, errorsStore, statusStore }
 
       /* Reset Form */

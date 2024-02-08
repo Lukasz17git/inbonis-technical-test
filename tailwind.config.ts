@@ -11,20 +11,19 @@ const config: Config = {
    theme: {
       extend: withMicrotailwindExtensions({
          colors: {
-            ...DEFAULT_THEME.COLORS,
-            primary: '#756553',
-            gold: {
-               DEFAULT: '#b0997d',
-               night: '#a7734b',
-               white: '#faf2e6',
-               light: '#fcfae0',
-               dark: '#b0997d',
+            primary: {
+               DEFAULT: '#22d099',
+               pastel: '#2b7874'
             },
-            brown: '#a6542e',
-            night: '#a7734b'
+
+            font: {
+               DEFAULT: '#2d2d2d',
+               grey: '#958c81',
+               invalid: '#e44b68',
+            },
          },
          fontFamily: {
-            app: 'var(--tf-poppins)',
+            app: 'var(--tf-app)',
          },
       }),
    },

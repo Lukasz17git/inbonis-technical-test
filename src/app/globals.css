@@ -2,32 +2,75 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Resets */
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+   font-synthesis: none;
+   text-rendering: optimizeLegibility;
+   -webkit-font-smoothing: antialiased;
+   -moz-osx-font-smoothing: grayscale;
+   -webkit-text-size-adjust: 100%;
+
+   /* unstable, may change in future or doesn't work same for all users, but still worth it*/
+   -webkit-tap-highlight-color: transparent;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+*,
+*::before,
+*::after {
+   padding: 0;
+   margin: 0;
+   box-sizing: border-box;
+   border-width: 0;
+   border-style: solid;
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+picture {
+   display: block;
+   max-width: 100%;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+a {
+   text-decoration: none;
+}
+
+button {
+   border-color: none;
+   background: none;
+   padding: 0;
+   cursor: pointer;
+}
+
+input,
+button,
+textarea,
+select {
+   font: inherit;
+}
+
+small {
+   display: inline-block;
+   font-size: 0.8125rem;
+}
+
+q {
+   quotes: none;
+   display: inline-block;
+   font-size: 0.75rem;
+}
+
+span {
+   display: inline-block;
+}
+
+/* Remove autocomplete styles in Chrome using "infinite" transition*/
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+   transition: background-color 50000s ease-in 0s;
 }

@@ -3,7 +3,7 @@ import { FieldContext } from "../context"
 import { getDefaultModifiers, getUnknownSetterModifier } from "./modifiers"
 import { type FieldStatus } from "../useForm"
 import { strict } from "maraj"
-import type { OmitKeys } from "@/utility-types"
+import type { OmitKeys } from "@/(utility-types)"
 
 export type ValidTypesAsInputValue = string | number | undefined | readonly string[] | boolean
 
@@ -68,17 +68,10 @@ export const useFieldController: UseFieldController = (onChange, onBlur) => {
       if (status?.isDirty) {
          const setModifier = _setModifier ?? getUnknownSetterModifier(e.target.type)
          valuesStore.handlers.updateStateViaPath(fieldPath, setModifier(e.target.value))
-      } else if (status?.isDirty === false) {
+      } else {
          statusStore.handlers.updateStateViaPath(fieldPath, v => strict({ ...v, isDirty: true }))
       }
    }
-
-   /* dirty field on render if its not empty */
-   useEffect(() => {
-      if (_value) {
-         statusStore.handlers.updateStateViaPath(fieldPath, v => strict({ ...v, isDirty: true }))
-      }
-   }, [])
 
    const value = getModifier(_value)
 
