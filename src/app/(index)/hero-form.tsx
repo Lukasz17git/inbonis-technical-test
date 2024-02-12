@@ -43,7 +43,7 @@ export const HeroForm = () => {
          cif: 'B48527139',
          activity: '',
       },
-      // subscribe: zodParser(heroFormSchema),
+      subscribe: zodParser(heroFormSchema),
    })
 
    const onSubmit = submitHandler(async (values, changedValues) => {
